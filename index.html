@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Peri-Order | Simple Menu</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<!-- ===== HEADER ===== -->
+<header class="app-header" role="banner">
+  <div class="brand">
+    <img src="assets/nandos-logo.png" alt="Nando's Logo" class="nandos-logo" />
+    <p class="subtitle">Tap to build the order</p>
+  </div>
+</header>
+
+  <main class="app-main" role="main">
+    <!-- CATEGORY GRID -->
+    <section class="menu-grid" aria-label="Menu categories">
+      <!-- Burger -->
+      <article class="card" tabindex="0" aria-label="PERi-PERi Burger" data-item="Burger" data-type="spicy-main">
+        <img src="assets/burger.png" alt="Burger symbol" class="card-image" />
+        <div class="card-body">
+          <h2 class="card-title">Burger</h2>
+          <button class="btn add-btn" aria-label="Add Burger">Add</button>
+        </div>
+      </article>
+
+      <!-- Wrap -->
+      <article class="card" tabindex="0" aria-label="PERi-PERi Wrap" data-item="Wrap" data-type="spicy-main">
+        <img src="assets/wrap.png" alt="Wrap symbol" class="card-image" />
+        <div class="card-body">
+          <h2 class="card-title">Wrap</h2>
+          <button class="btn add-btn" aria-label="Add Wrap">Add</button>
+        </div>
+      </article>
+
+      <!-- Chicken -->
+      <article class="card" tabindex="0" aria-label="PERi-PERi Chicken" data-item="Chicken" data-type="portion-then-spice">
+        <img src="assets/chicken.png" alt="Chicken symbol" class="card-image" />
+        <div class="card-body">
+          <h2 class="card-title">Chicken</h2>
+          <button class="btn add-btn" aria-label="Choose Chicken">Choose</button>
+        </div>
+      </article>
+
+<!-- Sides -->
+<article class="card" tabindex="0" aria-label="Sides: choose option" data-item="Sides" data-type="side-choice">
+  <img src="assets/sides.png" alt="Sides symbol" class="card-image" />
+  <div class="card-body">
+    <h2 class="card-title">Sides</h2>
+    <button class="btn add-btn" aria-label="Choose a Side">Choose</button>
+  </div>
+</article>
+
+<!-- Drinks -->
+<article class="card" tabindex="0" aria-label="Drinks" data-item="Drinks" data-type="drink-choice">
+  <img src="assets/drink.png" alt="Drinks symbol" class="card-image" />
+  <div class="card-body">
+    <h2 class="card-title">Drinks</h2>
+    <button class="btn add-btn" aria-label="Choose a Drink">Choose</button>
+  </div>
+</article>
+
+      <!-- Ice Cream -->
+      <article class="card" tabindex="0" aria-label="Ice Cream" data-item="Ice Cream" data-type="simple">
+        <img src="assets/ice-cream.png" alt="Ice Cream symbol" class="card-image" />
+        <div class="card-body">
+          <h2 class="card-title">Ice Cream</h2>
+          <button class="btn add-btn" aria-label="Add Ice Cream">Add</button>
+        </div>
+      </article>
+    </section>
+
+    <!-- ORDER PANEL -->
+    <section class="order-panel" aria-label="Order summary" role="region">
+      <header class="order-header">
+        <h2>Order</h2>
+        <div class="order-actions">
+          <span id="itemCount" aria-live="polite">0 items</span>
+          <button id="clearOrder" class="btn ghost">Clear</button>
+        </div>
+      </header>
+      <ul id="orderList" class="order-list" aria-live="polite"></ul>
+    </section>
+  </main>
+
+  <!-- MODAL: PORTION SIZE -->
+  <dialog id="portionModal" class="modal" aria-label="Choose portion size">
+    <form method="dialog" class="modal-body">
+      <h3>Choose portion size</h3>
+      <div class="option-grid">
+        <button class="option" data-portion="1/4 Chicken" value="close">
+          <img src='assets/chicken-quarter.png' alt='Quarter Chicken' class='card-image' />
+          <span>¼ Chicken</span>
+        </button>
+        <button class="option" data-portion="1/2 Chicken" value="close">
+          <img src='assets/chicken-half.png' alt='Half Chicken' class='card-image' />
+          <span>½ Chicken</span>
+        </button>
+        <button class="option" data-portion="Full Chicken" value="close">
+          <img src='assets/chicken-full.png' alt='Full Chicken' class='card-image' />
+          <span>Full Chicken</span>
+        </button>
+      </div>
+      <button class="btn ghost close-btn" value="cancel" aria-label="Close">Cancel</button>
+    </form>
+  </dialog>
+
+  <!-- MODAL: SPICE LEVEL -->
+  <dialog id="spiceModal" class="modal" aria-label="Choose spice level">
+    <form method="dialog" class="modal-body">
+      <h3>Choose spice level</h3>
+      <div class="option-grid">
+        <button class="option" data-spice="Mild" value="close">
+          <img src="assets/spice-mild.png" alt="Mild symbol" />
+          <span>Mild</span>
+        </button>
+        <button class="option" data-spice="Medium" value="close">
+          <img src="assets/spice-medium.png" alt="Medium symbol" />
+          <span>Medium</span>
+        </button>
+        <button class="option" data-spice="Hot" value="close">
+          <img src="assets/spice-hot.png" alt="Hot symbol" />
+          <span>Hot</span>
+        </button>
+      </div>
+      <button class="btn ghost close-btn" value="cancel" aria-label="Close">Cancel</button>
+    </form>
+  </dialog>
+
+  <!-- MODAL: SIDE CHOICE -->
+  <dialog id="sideModal" class="modal" aria-label="Choose a side">
+    <form method="dialog" class="modal-body">
+      <h3>Choose a side</h3>
+      <div class="option-grid">
+        <button class="option" data-side="Rice" value="close">
+          <img src="assets/rice.png" alt="Rice symbol" />
+          <span>Rice</span>
+        </button>
+        <button class="option" data-side="Fries" value="close">
+          <img src="assets/fries.png" alt="Fries symbol" />
+          <span>Fries</span>
+        </button>
+        <button class="option" data-side="Corn" value="close">
+          <img src="assets/corn.png" alt="Corn symbol" />
+          <span>Corn</span>
+        </button>
+      </div>
+      <button class="btn ghost close-btn" value="cancel" aria-label="Close">Cancel</button>
+    </form>
+  </dialog>
+
+  <footer class="app-footer" role="contentinfo">
+  <!-- MODAL: DRINK CHOICE -->
+  <dialog id="drinkModal" class="modal" aria-label="Choose a drink">
+    <form method="dialog" class="modal-body">
+      <h3>Choose a drink</h3>
+      <div class="option-grid">
+        <button class="option" data-drink="Coke" value="close">
+          <img src="assets/coke.png" alt="Coke" />
+          <span>Coke</span>
+        </button>
+        <button class="option" data-drink="Fanta" value="close">
+          <img src="assets/fanta.png" alt="Fanta" />
+          <span>Fanta</span>
+        </button>
+        <button class="option" data-drink="Sprite" value="close">
+          <img src="assets/sprite.png" alt="Sprite" />
+          <span>Sprite</span>
+        </button>
+        <button class="option" data-drink="Water" value="close">
+          <img src="assets/water.png" alt="Water" />
+          <span>Water</span>
+        </button>
+      </div>
+      <button class="btn ghost close-btn" value="cancel" aria-label="Close">Cancel</button>
+    </form>
+  </dialog>
+
+</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
