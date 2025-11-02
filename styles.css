@@ -19,9 +19,7 @@ body{
   display:flex;
   flex-direction:column;
   min-height:100vh;
-}
-
-/* --- Header Styling --- */
+}/* --- Header Styling --- */
 .app-header {
   background-color: #a00000;        /* peri red header */
   border-bottom: 4px solid #7a0000; /* darker red border accent */
@@ -49,7 +47,6 @@ body{
   text-shadow: 1px 1px 2px rgba(0,0,0,0.3); /* subtle shadow for clarity */
 }
 
-/* (Keeps your gradient header variant; color stays white via .subtitle above) */
 .app-header{
   background:linear-gradient(90deg,var(--peri-red),#f25b31);
   color:white;
@@ -133,10 +130,7 @@ body{
   border:2px dashed var(--peri-sand);
   border-radius:12px; padding:8px 10px; background: #fffdfb;
 }
-.order-item .meta{
-  display:flex;
-  flex-direction:column;
-}
+.order-item .meta{display:flex; flex-direction:column}
 .order-item .label{font-weight:700}
 .order-item .note{font-size:.9rem; opacity:.8}
 .order-item .qty{display:flex; align-items:center; gap:6px}
@@ -164,53 +158,8 @@ body{
 }
 .option img{width:72px; height:72px; object-fit:contain;}
 
-.app-footer{
-  padding:16px 20px;
-  text-align:center;
-  color:#333;
-  opacity:.85;
-}
+.app-footer{padding:16px 20px; text-align:center; color:#333; opacity:.85}
+code{background:#f3efe7; padding:2px 6px; border-radius:6px; border:1px solid #e5d8c9}
 
-code{
-  background:#f3efe7;
-  padding:2px 6px;
-  border-radius:6px;
-  border:1px solid #e5d8c9;
-}
 
-/* ---- Thumbnails in order list (NEW) ---- */
-.order-item .meta{
-  /* override: show icons + text in a row for readability */
-  flex-direction: row;
-  align-items: center;
-  gap: 10px;
-}
-
-.order-item .thumbs{
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  margin-right: 2px;
-}
-
-.order-item .thumb{
-  width: 28px;
-  height: 28px;
-  object-fit: contain;
-  background: #fff;
-  border: 1px solid #222;
-  border-radius: 6px;
-  padding: 2px;
-  box-shadow: 1px 1px 0 rgba(0,0,0,.15);
-}
-
-/* Styling consistency for label + note beside icons */
-.order-item .label {
-  font-weight: 700;
-}
-
-.order-item .note {
-  color: #6b6b6b;
-  margin-left: 6px;
-}
-/* keep the logo at 120px (remove old 60px override) */
+.nandos-logo{height:60px;width:auto;display:block;}
